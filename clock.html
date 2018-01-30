@@ -2,8 +2,7 @@
 <html>
 <body>
 
-<canvas id="canvas" width="400" height="400"
-style="background-color:#333">
+<canvas id="canvas" width="400" height="400" style="background-color:#151515">
 </canvas>
 
 <script>
@@ -63,16 +62,10 @@ function drawNumbers(ctx, radius) {
 }
 
 function drawTime(ctx, radius){
-    var now = new Date();
-    var hour = now.getHours();
-    var minute = now.getMinutes();
-    var second = now.getSeconds();
-
     // random minutes, oclock, quarter to, half past or quarter to
     minute = ( Math.floor(Math.random() * 4) + 1) * 15 
     // random hour
     hour = ( Math.floor(Math.random() * 12 ) + 1) 
-
     second = 0;
     //hour
     hour=hour%12;
@@ -82,10 +75,8 @@ function drawTime(ctx, radius){
     drawHand(ctx, hour, radius*0.5, radius*0.07);
     //minute
     minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
-    drawHand(ctx, minute, radius*0.9, radius*0.07);
-    // second
-    second=(second*Math.PI/30);
-//    drawHand(ctx, second, radius*0.9, radius*0.02);
+    drawHand(ctx, minute, radius*0.8, radius*0.07);
+
 }
 
 function drawHand(ctx, pos, length, width) {
@@ -98,8 +89,8 @@ function drawHand(ctx, pos, length, width) {
     ctx.stroke();
     ctx.rotate(-pos);
 }
-</script>
-
+</script><br/>
+<button onclick="drawClock()">Update</button>
 </body>
 </html>
 
